@@ -85,8 +85,8 @@ export default async function PropertyDetailsPage({
             <div className="mt-5 h-72 rounded-[24px] border border-dashed border-slate-300 bg-[radial-gradient(circle_at_center,_rgba(16,185,129,0.1),_rgba(255,255,255,0.8)_50%,_rgba(148,163,184,0.12))] p-5">
               <div className="flex h-full items-center justify-center rounded-[20px] border border-slate-200 bg-white/80 text-center">
                 <div>
-                  <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-emerald-700">Google Map Placeholder</p>
-                  <p className="mt-3 text-lg font-semibold text-slate-800">{property.city}, {property.state}</p>
+                  <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-emerald-700">Map area</p>
+                  <p className="mt-3 text-lg font-semibold text-slate-800">{property.location}</p>
                   <p className="mt-2 text-sm text-slate-500">{property.address}</p>
                 </div>
               </div>
@@ -103,46 +103,44 @@ export default async function PropertyDetailsPage({
                 <dd className="font-semibold text-slate-900">{property.id}</dd>
               </div>
               <div className="flex items-center justify-between border-b border-slate-100 pb-3">
+                <dt>Property Type</dt>
+                <dd className="font-semibold text-slate-900">{property.type}</dd>
+              </div>
+              <div className="flex items-center justify-between border-b border-slate-100 pb-3">
                 <dt>Area</dt>
                 <dd className="font-semibold text-slate-900">{property.area} {property.unit}</dd>
               </div>
               <div className="flex items-center justify-between border-b border-slate-100 pb-3">
                 <dt>Location</dt>
-                <dd className="text-right font-semibold text-slate-900">{property.city}, {property.state}</dd>
-              </div>
-              <div className="flex items-center justify-between border-b border-slate-100 pb-3">
-                <dt>District</dt>
-                <dd className="font-semibold text-slate-900">{property.district}</dd>
-              </div>
-              <div className="flex items-center justify-between border-b border-slate-100 pb-3">
-                <dt>Featured</dt>
-                <dd className="font-semibold text-slate-900">{property.featured ? "Yes" : "No"}</dd>
+                <dd className="text-right font-semibold text-slate-900">{property.location}</dd>
               </div>
               <div className="flex items-center justify-between">
-                <dt>Created</dt>
-                <dd className="font-semibold text-slate-900">{property.createdAt}</dd>
+                <dt>Status</dt>
+                <dd className="font-semibold text-slate-900">{property.status}</dd>
               </div>
             </dl>
           </div>
 
           <div className="rounded-[30px] border border-slate-200 bg-white p-6 shadow-[0_20px_60px_rgba(15,23,42,0.06)]">
-            <h3 className="text-xl font-bold text-slate-900">Need a Site Visit?</h3>
+            <h3 className="text-xl font-bold text-slate-900">Contact Admin</h3>
             <p className="mt-3 text-sm leading-6 text-slate-600">
-              Connect with our advisors to arrange a guided property walkthrough and receive seller details.
+              Speak with Bhoomi Sethu to learn more about this property or to schedule a site visit.
             </p>
             <div className="mt-5 space-y-3">
               <a
                 href={`tel:${property.contactNumber.replace(/\s+/g, "")}`}
                 className="inline-flex w-full items-center justify-center rounded-full bg-emerald-600 px-5 py-3 text-sm font-semibold text-white transition hover:bg-emerald-700"
               >
-                Contact Seller
+                Call Admin
               </a>
-              <Link
-                href={`/contact?property=${property.id}`}
+              <a
+                href={`https://wa.me/${property.whatsappNumber.replace(/\D/g, "")}`}
+                target="_blank"
+                rel="noreferrer"
                 className="inline-flex w-full items-center justify-center rounded-full border border-slate-200 bg-slate-50 px-5 py-3 text-sm font-semibold text-slate-700 transition hover:border-emerald-200 hover:text-emerald-700"
               >
-                Request Visit
-              </Link>
+                WhatsApp Admin
+              </a>
             </div>
           </div>
         </aside>

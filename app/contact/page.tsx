@@ -4,19 +4,27 @@ export default function ContactPage() {
       <section className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr]">
         <div className="rounded-[30px] bg-slate-900 p-8 text-white shadow-[0_24px_80px_rgba(15,23,42,0.18)]">
           <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-emerald-300">Contact</p>
-          <h1 className="mt-3 text-3xl font-bold tracking-tight sm:text-4xl">Talk to our property advisors</h1>
+          <h1 className="mt-3 text-3xl font-bold tracking-tight sm:text-4xl">Talk to the Bhoomi Sethu team</h1>
           <div className="mt-8 space-y-5 text-slate-300">
             <div>
-              <p className="text-xs uppercase tracking-[0.18em] text-slate-400">Call us</p>
+              <p className="text-xs uppercase tracking-[0.18em] text-slate-400">Company</p>
+              <p className="mt-2 text-lg font-semibold text-white">Bhoomi Sethu</p>
+            </div>
+            <div>
+              <p className="text-xs uppercase tracking-[0.18em] text-slate-400">Phone</p>
+              <p className="mt-2 text-lg font-semibold text-white">+91 98765 43210</p>
+            </div>
+            <div>
+              <p className="text-xs uppercase tracking-[0.18em] text-slate-400">WhatsApp</p>
               <p className="mt-2 text-lg font-semibold text-white">+91 98765 43210</p>
             </div>
             <div>
               <p className="text-xs uppercase tracking-[0.18em] text-slate-400">Email</p>
-              <p className="mt-2 text-lg font-semibold text-white">hello@landnest.in</p>
+              <p className="mt-2 text-lg font-semibold text-white">hello@bhoomisethu.in</p>
             </div>
             <div>
-              <p className="text-xs uppercase tracking-[0.18em] text-slate-400">Office</p>
-              <p className="mt-2 text-lg font-semibold text-white">12 Green Plaza, Bengaluru, Karnataka</p>
+              <p className="text-xs uppercase tracking-[0.18em] text-slate-400">Office Address</p>
+              <p className="mt-2 text-lg font-semibold text-white">12 Green Plaza, Bengaluru, Karnataka 560001</p>
             </div>
           </div>
         </div>
@@ -42,7 +50,7 @@ export default function ContactPage() {
 
             <label className="block">
               <span className="mb-2 block text-sm font-medium text-slate-700">Property Interest</span>
-              <input className="w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm focus:border-emerald-400 focus:outline-none" placeholder="Farm Land, Villa, Apartment etc." />
+              <input className="w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm focus:border-emerald-400 focus:outline-none" placeholder="Farm Land, Plot, Flat, etc." />
             </label>
 
             <label className="block">

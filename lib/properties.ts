@@ -1,16 +1,13 @@
-export type PropertyStatus = "Available" | "Sold" | "Under Negotiation";
+export type PropertyStatus = "Available" | "Sold";
 
 export type PropertyType =
   | "Farm Land"
-  | "Agricultural Land"
-  | "Residential Plot"
-  | "Villa"
+  | "Plot"
   | "Independent House"
-  | "Apartment / Flat"
-  | "Commercial Property"
-  | "Industrial Property";
+  | "Flat"
+  | "Commercial Property";
 
-export type PropertyUnit = "Sqft" | "Acres" | "Guntas" | "Hectares";
+export type PropertyUnit = "Sqft" | "Acres" | "Guntas";
 
 export type Property = {
   id: string;
@@ -20,15 +17,14 @@ export type Property = {
   area: number;
   unit: PropertyUnit;
   city: string;
-  district: string;
   state: string;
+  location: string;
   address: string;
-  latitude: number;
-  longitude: number;
   description: string;
   features: string[];
   images: string[];
   contactNumber: string;
+  whatsappNumber: string;
   status: PropertyStatus;
   featured: boolean;
   createdAt: string;
@@ -36,229 +32,168 @@ export type Property = {
 
 export const propertyCategories: PropertyType[] = [
   "Farm Land",
-  "Agricultural Land",
-  "Residential Plot",
-  "Villa",
+  "Plot",
   "Independent House",
-  "Apartment / Flat",
+  "Flat",
   "Commercial Property",
-  "Industrial Property",
 ];
 
 export const properties: Property[] = [
   {
-    id: "LN-1001",
-    title: "Green Horizon Farm Land",
+    id: "BS-101",
+    title: "Green Valley Farm Land",
     type: "Farm Land",
-    price: 2850000,
-    area: 2.5,
+    price: 2250000,
+    area: 2.4,
     unit: "Acres",
     city: "Pune",
-    district: "Pune",
     state: "Maharashtra",
-    address: "Near Sopan Baug, Pune-Satara Road, Pune",
-    latitude: 18.5196,
-    longitude: 73.8567,
+    location: "Pune, Maharashtra",
+    address: "Near Sopan Baug, Pune-Satara Road",
     description:
-      "A well-connected farm land parcel ideal for agricultural investment, weekend retreat planning, or future villa development. The plot offers clean access roads, fertile soil, and wide green surroundings.",
-    features: ["Fertile soil", "Road frontage", "Water access", "Gated approach", "Open skies"],
+      "A fertile and well-connected agricultural parcel suitable for cultivation, long-term land banking, or a private retreat. The land offers easy access to highways, water lines, and a calm green surroundings.",
+    features: ["Road frontage", "Fertile soil", "Water access", "Gated approach", "High appreciation potential"],
     images: [
       "https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1200&q=80",
-      "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=1200&q=80",
       "https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=1200&q=80",
     ],
     contactNumber: "+91 98765 43210",
+    whatsappNumber: "+91 98765 43210",
     status: "Available",
     featured: true,
-    createdAt: "2026-07-12",
+    createdAt: "2026-07-06",
   },
   {
-    id: "LN-1002",
-    title: "River View Agricultural Estate",
-    type: "Agricultural Land",
-    price: 4200000,
-    area: 4.2,
-    unit: "Acres",
-    city: "Nashik",
-    district: "Nashik",
-    state: "Maharashtra",
-    address: "Along Gangapur Road, Near Anjaneri Hills, Nashik",
-    latitude: 20.011,
-    longitude: 73.790,
-    description:
-      "This agricultural estate offers irrigation support, elevated terrain, and a peaceful river-facing setting. Suitable for organic cultivation, seasonal farming, or long-term land banking.",
-    features: ["Irrigation ready", "River proximity", "Level terrain", "Easy access", "High soil fertility"],
-    images: [
-      "https://images.unsplash.com/photo-1466692476868-aef1dfb1e735?auto=format&fit=crop&w=1200&q=80",
-      "https://images.unsplash.com/photo-1471193945509-9ad0617afabf?auto=format&fit=crop&w=1200&q=80",
-      "https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&w=1200&q=80",
-    ],
-    contactNumber: "+91 98220 33445",
-    status: "Under Negotiation",
-    featured: true,
-    createdAt: "2026-07-10",
-  },
-  {
-    id: "LN-1003",
-    title: "Emerald Grove Residential Plot",
-    type: "Residential Plot",
+    id: "BS-102",
+    title: "Sunrise Garden Plot",
+    type: "Plot",
     price: 1850000,
     area: 1800,
     unit: "Sqft",
     city: "Bengaluru",
-    district: "Bengaluru Urban",
     state: "Karnataka",
+    location: "Bengaluru, Karnataka",
     address: "Near Whitefield Main Road, Bengaluru",
-    latitude: 12.9716,
-    longitude: 77.5946,
     description:
-      "A premium residential plot in a fast-growing neighborhood with clear titles, developed utilities, and convenient access to schools, IT parks, and retail hubs.",
-    features: ["DTCP approved", "Wide roads", "Street lighting", "Near metro", "Ready utilities"],
+      "A premium residential plot in a high-growth locality with approved layout, clear titles, and close access to metro connectivity, schools, tech parks, and retail zones.",
+    features: ["Approved layout", "Wide roads", "Street lighting", "Metro nearby", "Clean title"],
     images: [
       "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1200&q=80",
-      "https://images.unsplash.com/photo-1448630360428-65456885c650?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1200&q=80",
       "https://images.unsplash.com/photo-1523217582562-09d0def993a6?auto=format&fit=crop&w=1200&q=80",
     ],
     contactNumber: "+91 98888 11223",
-    status: "Available",
-    featured: false,
-    createdAt: "2026-07-20",
-  },
-  {
-    id: "LN-1004",
-    title: "Sierra Villa Residency",
-    type: "Villa",
-    price: 7150000,
-    area: 3200,
-    unit: "Sqft",
-    city: "Jaipur",
-    district: "Jaipur",
-    state: "Rajasthan",
-    address: "Vaishali Nagar Extension, Jaipur",
-    latitude: 26.9124,
-    longitude: 75.7873,
-    description:
-      "An elegant villa with landscaped open spaces, double-height living, and a family-friendly layout designed for modern comfort and natural light.",
-    features: ["Private garden", "3 car parking", "Modular kitchen", "Smart home ready", "Club facility"],
-    images: [
-      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80",
-      "https://images.unsplash.com/photo-1582407947304-fd86f028f716?auto=format&fit=crop&w=1200&q=80",
-      "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1200&q=80",
-    ],
-    contactNumber: "+91 99880 45678",
+    whatsappNumber: "+91 98888 11223",
     status: "Available",
     featured: true,
-    createdAt: "2026-07-14",
+    createdAt: "2026-07-18",
   },
   {
-    id: "LN-1005",
-    title: "Maple Crest Independent House",
+    id: "BS-103",
+    title: "Emerald Heights Independent House",
     type: "Independent House",
-    price: 5400000,
-    area: 2500,
+    price: 6400000,
+    area: 2400,
     unit: "Sqft",
     city: "Hyderabad",
-    district: "Ranga Reddy",
     state: "Telangana",
+    location: "Hyderabad, Telangana",
     address: "Madhapur, Hyderabad",
-    latitude: 17.385,
-    longitude: 78.4867,
     description:
-      "A spacious independent home in a secure neighborhood with contemporary interiors, a large porch, and easy access to schools, offices, and major roads.",
-    features: ["Family lounge", "Two balconies", "Private terrace", "Security cabin", "CCTV coverage"],
+      "A spacious and elegant family home with contemporary interiors, a large front lawn, and seamless access to major business hubs and residential amenities.",
+    features: ["3 bedrooms", "Private garden", "Covered parking", "Balcony", "Family-friendly layout"],
     images: [
       "https://images.unsplash.com/photo-1568605114967-8130f3a36994?auto=format&fit=crop&w=1200&q=80",
       "https://images.unsplash.com/photo-1570129477492-45c003edd2be?auto=format&fit=crop&w=1200&q=80",
-      "https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=1200&q=80",
     ],
     contactNumber: "+91 97000 11234",
+    whatsappNumber: "+91 97000 11234",
     status: "Sold",
     featured: false,
-    createdAt: "2026-06-29",
+    createdAt: "2026-06-28",
   },
   {
-    id: "LN-1006",
-    title: "Skyline Residency Flat",
-    type: "Apartment / Flat",
-    price: 9800000,
-    area: 1800,
+    id: "BS-104",
+    title: "Urban Crest Flat",
+    type: "Flat",
+    price: 5800000,
+    area: 1425,
     unit: "Sqft",
     city: "Mumbai",
-    district: "Mumbai Suburban",
     state: "Maharashtra",
+    location: "Mumbai, Maharashtra",
     address: "Andheri East, Mumbai",
-    latitude: 19.076,
-    longitude: 72.8777,
     description:
-      "A west-facing apartment with city views, premium finishes, and high-rise comforts in a centrally connected residential complex.",
+      "A bright west-facing apartment in a premium residential tower with strong connectivity, secure amenities, and modern lifestyle features for city living.",
     features: ["24x7 security", "Swimming pool", "Lift access", "Power backup", "Covered parking"],
     images: [
       "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=1200&q=80",
       "https://images.unsplash.com/photo-1484154218962-a197022b5858?auto=format&fit=crop&w=1200&q=80",
-      "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=1200&q=80",
     ],
     contactNumber: "+91 97654 89012",
+    whatsappNumber: "+91 97654 89012",
     status: "Available",
     featured: false,
-    createdAt: "2026-07-22",
+    createdAt: "2026-07-12",
   },
   {
-    id: "LN-1007",
-    title: "Metro Trade Hub",
+    id: "BS-105",
+    title: "Metro Business Plaza",
     type: "Commercial Property",
     price: 12500000,
-    area: 3500,
+    area: 3200,
     unit: "Sqft",
     city: "Ahmedabad",
-    district: "Ahmedabad",
     state: "Gujarat",
-    address: "Near Prahlad Nagar, Ahmedabad",
-    latitude: 23.0225,
-    longitude: 72.5714,
+    location: "Ahmedabad, Gujarat",
+    address: "Prahlad Nagar, Ahmedabad",
     description:
-      "A strategically located commercial property suited for showroom, office, or retail operations in a high-footfall business district.",
-    features: ["High visibility", "Power backup", "Lift access", "Frontage access", "Parking facility"],
+      "A strategically placed commercial asset ideal for offices, retail, or studio use with high visibility, customer access, and proximity to key business corridors.",
+    features: ["Frontage access", "Parking", "Power backup", "High visibility", "Business hub location"],
     images: [
       "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1200&q=80",
-      "https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1497366412874-3415097a27e7?auto=format&fit=crop&w=1200&q=80",
       "https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?auto=format&fit=crop&w=1200&q=80",
     ],
     contactNumber: "+91 99221 55667",
-    status: "Under Negotiation",
+    whatsappNumber: "+91 99221 55667",
+    status: "Available",
     featured: true,
-    createdAt: "2026-06-18",
+    createdAt: "2026-07-22",
   },
   {
-    id: "LN-1008",
-    title: "Industrial Growth Park",
-    type: "Industrial Property",
-    price: 16200000,
-    area: 3.8,
-    unit: "Hectares",
-    city: "Vadodara",
-    district: "Vadodara",
-    state: "Gujarat",
-    address: "Makarpura Industrial Estate, Vadodara",
-    latitude: 22.3072,
-    longitude: 73.1812,
+    id: "BS-106",
+    title: "Oakridge Residential Plot",
+    type: "Plot",
+    price: 9200000,
+    area: 2200,
+    unit: "Sqft",
+    city: "Jaipur",
+    state: "Rajasthan",
+    location: "Jaipur, Rajasthan",
+    address: "Vaishali Nagar Extension, Jaipur",
     description:
-      "A production-ready industrial parcel with road access, utility lines, and potential for warehousing, fabrication, or light manufacturing.",
-    features: ["Heavy vehicle access", "Utility lines", "Open storage", "Warehousing space", "Industrial zoning"],
+      "A clean and well-positioned plot near city amenities, parks, and fast-developing residential corridors. Ideal for families planning a custom-built future home.",
+    features: ["Clean title", "Developed neighborhood", "Good road access", "Water and power lines", "Good resale value"],
     images: [
-      "https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?auto=format&fit=crop&w=1200&q=80",
-      "https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?auto=format&fit=crop&w=1200&q=80",
-      "https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1523217582562-09d0def993a6?auto=format&fit=crop&w=1200&q=80",
     ],
-    contactNumber: "+91 99111 33445",
+    contactNumber: "+91 99880 45678",
+    whatsappNumber: "+91 99880 45678",
     status: "Available",
     featured: false,
-    createdAt: "2026-07-04",
+    createdAt: "2026-07-09",
   },
 ];
 
 export const propertyHighlights = [
-  { label: "Active Listings", value: "128+" },
-  { label: "Cities Covered", value: "24" },
-  { label: "Trusted Seller Network", value: "96%" },
-  { label: "Site Visits Scheduled", value: "2.4k" },
+  { label: "Active Listings", value: "72+" },
+  { label: "Cities Covered", value: "18" },
+  { label: "Trusted Network", value: "96%" },
+  { label: "Site Visits", value: "2.4k" },
 ];

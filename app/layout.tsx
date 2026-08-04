@@ -15,9 +15,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "BhoomiSethu | Premium Indian Real Estate Platform",
+  title: "Bhoomi Sethu | Connecting People with Verified Properties",
   description:
-    "BhoomiSethu is an admin-managed real estate platform for premium land and property discovery across India.",
+    "Bhoomi Sethu connects people with verified properties across India through a trusted, admin-managed real estate experience.",
 };
 
 export default function RootLayout({

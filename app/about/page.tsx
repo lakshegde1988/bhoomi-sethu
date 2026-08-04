@@ -13,8 +13,8 @@ export default function AboutPage() {
       <section className="overflow-hidden rounded-[32px] bg-slate-900 p-8 text-white md:p-12">
         <div className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
           <div>
-            <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-emerald-300">About BhoomiSethu</p>
-            <h1 className="mt-4 text-3xl font-bold tracking-tight sm:text-5xl">Building trust in every land and property decision.</h1>
+            <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-emerald-300">About Bhoomi Sethu</p>
+            <h1 className="mt-4 text-3xl font-bold tracking-tight sm:text-5xl">Connecting people with verified properties across India.</h1>
             <p className="mt-5 max-w-xl text-base leading-8 text-slate-300">
               We help buyers connect with verified seller opportunities across India while keeping the experience simple, transparent, and admin-led.
             </p>
@@ -44,7 +44,7 @@ export default function AboutPage() {
         <div className="rounded-[30px] border border-slate-200 bg-white p-8 shadow-[0_20px_60px_rgba(15,23,42,0.05)]">
           <h2 className="text-2xl font-bold text-slate-900">Our mission</h2>
           <p className="mt-4 text-base leading-8 text-slate-600">
-            LandNest exists to simplify property discovery in India by bringing together premium land, residential, and commercial opportunities with a trusted, admin-managed process.
+            Bhoomi Sethu exists to simplify property discovery in India by bringing together premium land, residential, and commercial opportunities with a trusted, admin-managed process.
           </p>
           <p className="mt-4 text-base leading-8 text-slate-600">
             We focus on trustworthy listings, transparent communication, and expert guidance for site visits—so every buyer can make a confident decision.

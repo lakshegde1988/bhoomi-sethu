@@ -10,8 +10,11 @@ const itemsPerPage = 6;
 export default function PropertiesPage() {
   const [search, setSearch] = useState("");
   const [category, setCategory] = useState("All");
-  const [status, setStatus] = useState("All");
+  const [location, setLocation] = useState("All");
+  const [priceRange, setPriceRange] = useState("All");
   const [page, setPage] = useState(1);
+
+  const locations = ["All", ...new Set(properties.map((property) => property.city))];
 
   const filteredProperties = useMemo(() => {
     return properties.filter((property) => {
@@ -20,10 +23,20 @@ export default function PropertiesPage() {
         property.city.toLowerCase().includes(search.toLowerCase()) ||
         property.state.toLowerCase().includes(search.toLowerCase());
       const matchesCategory = category === "All" || property.type === category;
-      const matchesStatus = status === "All" || property.status === status;
-      return matchesSearch && matchesCategory && matchesStatus;
+      const matchesLocation = location === "All" || property.city === location;
+
+      const matchesPrice = (() => {
+        if (priceRange === "All") return true;
+        if (priceRange === "Under 25L") return property.price < 2500000;
+        if (priceRange === "25L - 75L") return property.price >= 2500000 && property.price <= 7500000;
+        if (priceRange === "75L - 1.5Cr") return property.price > 7500000 && property.price <= 15000000;
+        if (priceRange === "1.5Cr+") return property.price > 15000000;
+        return true;
+      })();
+
+      return matchesSearch && matchesCategory && matchesLocation && matchesPrice;
     });
-  }, [search, category, status]);
+  }, [search, category, location, priceRange]);
 
   const totalPages = Math.max(1, Math.ceil(filteredProperties.length / itemsPerPage));
   const shownProperties = filteredProperties.slice((page - 1) * itemsPerPage, page * itemsPerPage);
@@ -31,7 +44,8 @@ export default function PropertiesPage() {
   const handleReset = () => {
     setSearch("");
     setCategory("All");
-    setStatus("All");
+    setLocation("All");
+    setPriceRange("All");
     setPage(1);
   };
 
@@ -41,7 +55,7 @@ export default function PropertiesPage() {
         <div className="flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
           <div>
             <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-emerald-300">Property Directory</p>
-            <h1 className="mt-3 text-3xl font-bold tracking-tight sm:text-4xl">Find the right land or property in India</h1>
+            <h1 className="mt-3 text-3xl font-bold tracking-tight sm:text-4xl">Find premium land and homes in India</h1>
           </div>
           <Link href="/contact" className="inline-flex rounded-full bg-white px-5 py-3 text-sm font-semibold text-slate-900 transition hover:bg-emerald-200">
             Schedule a Visit
@@ -50,7 +64,7 @@ export default function PropertiesPage() {
       </div>
 
       <section className="mb-8 rounded-[28px] border border-slate-200 bg-white p-5 shadow-[0_20px_60px_rgba(15,23,42,0.05)]">
-        <div className="grid gap-4 md:grid-cols-4">
+        <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-5">
           <label className="rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-left">
             <span className="block text-[10px] font-semibold uppercase tracking-[0.2em] text-slate-400">Search</span>
             <input
@@ -59,13 +73,13 @@ export default function PropertiesPage() {
                 setSearch(event.target.value);
                 setPage(1);
               }}
-              placeholder="City, state, title"
+              placeholder="City or title"
               className="mt-1 w-full bg-transparent text-sm text-slate-700 placeholder:text-slate-400 focus:outline-none"
             />
           </label>
 
           <label className="rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-left">
-            <span className="block text-[10px] font-semibold uppercase tracking-[0.2em] text-slate-400">Category</span>
+            <span className="block text-[10px] font-semibold uppercase tracking-[0.2em] text-slate-400">Property Type</span>
             <select
               value={category}
               onChange={(event) => {
@@ -82,19 +96,36 @@ export default function PropertiesPage() {
           </label>
 
           <label className="rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-left">
-            <span className="block text-[10px] font-semibold uppercase tracking-[0.2em] text-slate-400">Status</span>
+            <span className="block text-[10px] font-semibold uppercase tracking-[0.2em] text-slate-400">Location</span>
             <select
-              value={status}
+              value={location}
               onChange={(event) => {
-                setStatus(event.target.value);
+                setLocation(event.target.value);
                 setPage(1);
               }}
               className="mt-1 w-full bg-transparent text-sm text-slate-700 focus:outline-none"
             >
-              <option value="All">All</option>
-              <option value="Available">Available</option>
-              <option value="Sold">Sold</option>
-              <option value="Under Negotiation">Under Negotiation</option>
+              {locations.map((item) => (
+                <option key={item} value={item}>{item}</option>
+              ))}
+            </select>
+          </label>
+
+          <label className="rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-left">
+            <span className="block text-[10px] font-semibold uppercase tracking-[0.2em] text-slate-400">Price Range</span>
+            <select
+              value={priceRange}
+              onChange={(event) => {
+                setPriceRange(event.target.value);
+                setPage(1);
+              }}
+              className="mt-1 w-full bg-transparent text-sm text-slate-700 focus:outline-none"
+            >
+              <option value="All">Any Budget</option>
+              <option value="Under 25L">Under ₹25L</option>
+              <option value="25L - 75L">₹25L - ₹75L</option>
+              <option value="75L - 1.5Cr">₹75L - ₹1.5Cr</option>
+              <option value="1.5Cr+">₹1.5Cr +</option>
             </select>
           </label>
 
@@ -147,7 +178,7 @@ export default function PropertiesPage() {
       ) : (
         <div className="rounded-[28px] border border-dashed border-slate-300 bg-white p-10 text-center">
           <h2 className="text-2xl font-bold text-slate-900">No listings match your search</h2>
-          <p className="mt-3 text-slate-600">Try adjusting filters or exploring other property categories.</p>
+          <p className="mt-3 text-slate-600">Try a different city, property type, or budget range.</p>
         </div>
       )}
     </main>

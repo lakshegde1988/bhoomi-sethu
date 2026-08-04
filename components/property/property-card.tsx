@@ -28,7 +28,7 @@ export function PropertyCard({ property }: { property: Property }) {
       <div className="space-y-4 p-5">
         <div className="flex items-start justify-between gap-4">
           <div>
-            <p className="text-[11px] uppercase tracking-[0.18em] text-emerald-700">{property.city}</p>
+            <p className="text-[11px] uppercase tracking-[0.16em] text-emerald-700">{property.location}</p>
             <h3 className="mt-2 text-xl font-bold text-slate-900">{property.title}</h3>
           </div>
           <span className="rounded-full border border-emerald-200 bg-emerald-50 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.2em] text-emerald-700">
@@ -40,10 +40,10 @@ export function PropertyCard({ property }: { property: Property }) {
 
         <div className="flex items-center justify-between rounded-2xl bg-slate-50 px-3 py-2 text-sm text-slate-600">
           <span>{property.area} {property.unit}</span>
-          <span>{property.district}</span>
+          <span>{property.city}</span>
         </div>
 
-        <div className="flex items-end justify-between">
+        <div className="flex items-end justify-between gap-4">
           <div>
             <p className="text-sm text-slate-500">Starting at</p>
             <p className="mt-1 text-2xl font-bold text-slate-900">

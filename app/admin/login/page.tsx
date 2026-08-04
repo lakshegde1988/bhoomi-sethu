@@ -6,17 +6,17 @@ export default function AdminLoginPage() {
       <div className="grid w-full max-w-5xl overflow-hidden rounded-[32px] border border-slate-200 bg-white shadow-[0_20px_60px_rgba(15,23,42,0.06)] lg:grid-cols-[1fr_0.9fr]">
         <div className="bg-slate-900 p-8 text-white sm:p-10">
           <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-emerald-300">Admin Access</p>
-          <h1 className="mt-4 text-3xl font-bold tracking-tight sm:text-4xl">Secure property management portal</h1>
+          <h1 className="mt-4 text-3xl font-bold tracking-tight sm:text-4xl">Secure Bhoomi Sethu property portal</h1>
           <p className="mt-4 max-w-md text-base leading-8 text-slate-300">
-            BhoomiSethu is admin-only. Listings are managed by the platform team to maintain quality, compliance, and buyer trust.
+            Bhoomi Sethu is operated by the admin team only to maintain quality listings, accurate pricing, and a trusted buyer experience.
           </p>
           <div className="mt-8 rounded-[24px] border border-white/10 bg-white/5 p-5 text-sm text-slate-200">
-            <p className="font-semibold text-white">Access controls</p>
+            <p className="font-semibold text-white">Admin capabilities</p>
             <ul className="mt-3 space-y-2 text-slate-300">
               <li>• Add new listings</li>
-              <li>• Update property availability</li>
-              <li>• Review customer enquiries</li>
-              <li>• Manage media and settings</li>
+              <li>• Update property status</li>
+              <li>• Manage property images</li>
+              <li>• Maintain listing inventory</li>
             </ul>
           </div>
         </div>
@@ -30,7 +30,7 @@ export default function AdminLoginPage() {
           <form className="space-y-5">
             <label className="block">
               <span className="mb-2 block text-sm font-medium text-slate-700">Email Address</span>
-              <input className="w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm focus:border-emerald-400 focus:outline-none" placeholder="admin@landnest.in" />
+              <input className="w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm focus:border-emerald-400 focus:outline-none" placeholder="admin@bhoomisethu.in" />
             </label>
 
             <label className="block">

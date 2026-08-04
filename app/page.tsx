@@ -12,16 +12,16 @@ export default function HomePage() {
     <main>
       <section className="relative overflow-hidden bg-[radial-gradient(circle_at_top,_rgba(16,185,129,0.18),_transparent_28%),linear-gradient(135deg,_#f5fff8_0%,_#eefbf3_32%,_#ffffff_100%)]">
         <div className="mx-auto max-w-7xl px-4 pb-16 pt-12 sm:px-6 lg:px-8 lg:pb-20 lg:pt-16">
-          <div className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
+          <div className="grid gap-10 lg:grid-cols-[1.08fr_0.92fr] lg:items-center">
             <div>
               <span className="inline-flex rounded-full border border-emerald-200 bg-emerald-50 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.22em] text-emerald-700">
-                Trusted Real Estate for India
+                Connecting People with Verified Properties
               </span>
               <h1 className="mt-6 max-w-xl text-4xl font-bold tracking-tight text-slate-900 sm:text-5xl lg:text-6xl">
-                Find premium land and homes with confidence.
+                Find the right land, plot, or home with confidence.
               </h1>
               <p className="mt-5 max-w-xl text-lg leading-8 text-slate-600">
-                LandNest is a premium, admin-managed platform connecting buyers with verified properties across India for residential, commercial, and agricultural investments.
+                Bhoomi Sethu connects people with verified properties across India, helping buyers discover trusted opportunities with clarity and confidence.
               </p>
 
               <HeroSearch />
@@ -32,7 +32,7 @@ export default function HomePage() {
                 <div className="relative h-[520px] overflow-hidden rounded-[24px]">
                   <Image
                     src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80"
-                    alt="Modern luxury villa"
+                    alt="Premium real estate in India"
                     fill
                     className="object-cover"
                     priority
@@ -40,23 +40,8 @@ export default function HomePage() {
                   />
                 </div>
               </div>
-              <div className="absolute -bottom-6 left-6 rounded-[24px] border border-emerald-100 bg-white p-4 shadow-[0_20px_60px_rgba(15,23,42,0.12)]">
-                <p className="text-[10px] uppercase tracking-[0.18em] text-slate-500">Active in</p>
-                <p className="mt-2 text-2xl font-bold text-slate-900">24 Cities</p>
-              </div>
             </div>
           </div>
-        </div>
-      </section>
-
-      <section className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
-        <div className="grid gap-5 md:grid-cols-4">
-          {propertyHighlights.map((item) => (
-            <div key={item.label} className="rounded-[26px] border border-slate-200 bg-white p-6 shadow-[0_18px_60px_rgba(15,23,42,0.04)]">
-              <p className="text-3xl font-bold text-slate-900">{item.value}</p>
-              <p className="mt-2 text-sm text-slate-600">{item.label}</p>
-            </div>
-          ))}
         </div>
       </section>
 
@@ -98,7 +83,7 @@ export default function HomePage() {
           <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-emerald-700">Categories</p>
           <h2 className="mt-2 text-3xl font-bold tracking-tight text-slate-900">Explore by property type</h2>
         </div>
-        <div className="grid gap-5 sm:grid-cols-2 xl:grid-cols-4">
+        <div className="grid gap-5 sm:grid-cols-2 xl:grid-cols-5">
           {propertyCategories.map((category, index) => (
             <Link
               key={category}
@@ -110,7 +95,7 @@ export default function HomePage() {
               </div>
               <h3 className="mt-5 text-xl font-bold text-slate-900">{category}</h3>
               <p className="mt-3 text-sm leading-6 text-slate-600">
-                Curated options for modern buyers and investors seeking strong long-term value.
+                Curated options for buyers seeking strong value and long-term growth.
               </p>
             </Link>
           ))}
@@ -121,16 +106,16 @@ export default function HomePage() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mb-8 text-center">
             <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-emerald-300">Why choose us</p>
-            <h2 className="mt-2 text-3xl font-bold tracking-tight">A better, more trusted way to discover property</h2>
+            <h2 className="mt-2 text-3xl font-bold tracking-tight">A simpler, more trusted way to discover property</h2>
           </div>
           <div className="grid gap-6 md:grid-cols-3">
             {[
-              { title: "Verified listings", text: "Every property is reviewed and overseen by the LandNest admin team before publishing." },
-              { title: "Transparent guidance", text: "We help buyers evaluate location, pricing, and site visit logistics with complete clarity." },
-              { title: "Fast site visits", text: "Our team handles scheduling so interested buyers can explore opportunities quickly and confidently." },
+              { title: "Verified listings", text: "Every listing is reviewed and published only by the admin team to maintain quality and trust." },
+              { title: "Transparent guidance", text: "We help buyers compare locations, pricing, and site visit options before they commit." },
+              { title: "Fast site visits", text: "Interested buyers can connect quickly for schedule requests and guided property walkthroughs." },
             ].map((item) => (
               <div key={item.title} className="rounded-[28px] border border-white/10 bg-white/5 p-6">
-                <div className="h-12 w-12 rounded-2xl bg-emerald-500/20 text-emerald-300 flex items-center justify-center text-xl">✓</div>
+                <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-emerald-500/20 text-xl text-emerald-300">✓</div>
                 <h3 className="mt-5 text-xl font-bold">{item.title}</h3>
                 <p className="mt-3 text-sm leading-7 text-slate-300">{item.text}</p>
               </div>
