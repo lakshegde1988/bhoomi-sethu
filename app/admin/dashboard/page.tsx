@@ -2,7 +2,8 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useMemo, useState } from "react";
+import { useRouter } from "next/navigation";
+import { useEffect, useMemo, useState } from "react";
 import {
   properties as initialProperties,
   propertyCategories,
@@ -10,6 +11,7 @@ import {
   type PropertyStatus,
   type PropertyType,
 } from "@/lib/properties";
+import { clearAdminSession, hasAdminSession } from "@/lib/admin-auth";
 
 type AdminFormData = {
   title: string;
@@ -44,9 +46,16 @@ const defaultFormData: AdminFormData = {
 };
 
 export default function AdminDashboardPage() {
+  const router = useRouter();
   const [properties, setProperties] = useState<Property[]>(initialProperties);
   const [formData, setFormData] = useState(defaultFormData);
   const [editingId, setEditingId] = useState<string | null>(null);
+
+  useEffect(() => {
+    if (!hasAdminSession()) {
+      router.push("/admin/login");
+    }
+  }, [router]);
 
   const stats = useMemo(
     () => [
@@ -149,6 +158,11 @@ export default function AdminDashboardPage() {
     setProperties((current) => current.map((item) => (item.id === id ? { ...item, status } : item)));
   };
 
+  const handleLogout = () => {
+    clearAdminSession();
+    router.push("/admin/login");
+  };
+
   return (
     <main className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
       <div className="mb-8 flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
@@ -156,9 +170,18 @@ export default function AdminDashboardPage() {
           <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-emerald-700">Admin Dashboard</p>
           <h1 className="mt-2 text-3xl font-bold tracking-tight text-slate-900">Bhoomi Sethu management hub</h1>
         </div>
-        <Link href="/" className="inline-flex rounded-full border border-slate-200 bg-white px-4 py-2.5 text-sm font-semibold text-slate-700 transition hover:border-emerald-200 hover:text-emerald-700">
-          View site
-        </Link>
+        <div className="flex items-center gap-3">
+          <Link href="/" className="inline-flex rounded-full border border-slate-200 bg-white px-4 py-2.5 text-sm font-semibold text-slate-700 transition hover:border-emerald-200 hover:text-emerald-700">
+            View site
+          </Link>
+          <button
+            type="button"
+            onClick={handleLogout}
+            className="inline-flex rounded-full border border-red-200 bg-red-50 px-4 py-2.5 text-sm font-semibold text-red-700 transition hover:bg-red-100"
+          >
+            Logout
+          </button>
+        </div>
       </div>
 
       <div className="grid gap-8 xl:grid-cols-[260px_1fr]">
