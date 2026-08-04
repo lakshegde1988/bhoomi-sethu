@@ -3,11 +3,20 @@ import Link from "next/link";
 import { PropertyCard } from "@/components/property/property-card";
 import { HeroSearch } from "@/components/sections/hero-search";
 import { properties, propertyCategories, propertyHighlights } from "@/lib/properties";
+import { auth } from "@/lib/auth";
+import { redirect } from "next/navigation";
+import { headers } from "next/headers";
 
 const featuredProperties = properties.filter((property) => property.featured).slice(0, 3);
 const latestProperties = [...properties].sort((a, b) => b.createdAt.localeCompare(a.createdAt)).slice(0, 3);
 
-export default function HomePage() {
+export default async function HomePage() {
+  const headersList = await headers();
+  const session = await auth.api.getSession({ headers: headersList });
+
+  if (session?.user) {
+    redirect("/admin/properties");
+  }
   return (
     <main>
       <section className="relative overflow-hidden bg-[radial-gradient(circle_at_top,_rgba(16,185,129,0.18),_transparent_28%),linear-gradient(135deg,_#f5fff8_0%,_#eefbf3_32%,_#ffffff_100%)]">
