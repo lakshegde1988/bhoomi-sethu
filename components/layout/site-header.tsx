@@ -5,7 +5,6 @@ const navItems = [
   { href: "/properties", label: "Properties" },
   { href: "/about", label: "About" },
   { href: "/contact", label: "Contact" },
-  { href: "/admin/login", label: "Admin Login" },
 ];
 
 export function SiteHeader() {
@@ -38,15 +37,9 @@ export function SiteHeader() {
           <div className="flex items-center gap-3">
             <Link
               href="/properties"
-              className="hidden rounded-full border border-slate-200 px-4 py-2 text-sm font-semibold text-slate-700 transition hover:border-emerald-200 hover:text-emerald-700 sm:inline-flex"
+              className="inline-flex items-center justify-center rounded-full border border-slate-200 px-4 py-2 text-sm font-semibold text-slate-700 transition hover:border-emerald-200 hover:text-emerald-700"
             >
               Browse Listings
-            </Link>
-            <Link
-              href="/admin/login"
-              className="inline-flex items-center justify-center rounded-full bg-emerald-600 px-4 py-2.5 text-sm font-semibold text-white shadow-lg shadow-emerald-600/20 transition hover:bg-emerald-700"
-            >
-              Admin Portal
             </Link>
           </div>
         </div>
